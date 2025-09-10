@@ -1,0 +1,29 @@
+package polymorphism.characters;
+import java.util.Random;
+
+public class Mage extends GameCharacter{
+
+	
+	Random rand = new Random();
+	
+	public Mage(String race, int health, int stamina, int magicka) {
+		super(race, health, stamina, magicka);}
+
+	@Override
+	public int attack() {
+		return rand.nextInt(5, 20);}
+
+	@Override
+	public void takeDamage(int points) {
+		if(points < health ) {
+			health = health - points;}
+		else{
+			health = 0;}}
+
+	@Override
+	public boolean isAlive() {
+		if ( health > 0 ) {
+			return true;}
+		else {
+		return false;}}
+	}
