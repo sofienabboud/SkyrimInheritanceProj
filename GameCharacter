@@ -1,0 +1,48 @@
+package polymorphism.characters;
+
+public abstract class GameCharacter {
+
+	private String race;
+	protected int health;
+	private int stamina;
+	private int magicka;
+	private String weapon;
+	private String magic;
+	
+	public GameCharacter(String race, int health, int stamina, int magicka){
+		this.race = race;
+		this.health = health;
+		this.stamina = stamina;
+		this.magicka = magicka;}
+	
+	public String getRace() {
+		return race;}
+	
+	public int getHealth(){
+		return health;}
+	
+	public int getStamina() {
+		return stamina;}
+	
+	@Override
+	public String toString() {
+		return "Player: " + race + "    Stamina: " + stamina + " Health: " + health + " Magicka: "
+				+ magicka;}
+	
+	public String getWeapon() {
+		return weapon;}
+	
+	public String magic() {
+		return magic;}
+	
+	public abstract int attack();
+	public abstract void takeDamage(int points);
+	public abstract boolean isAlive();
+	
+	
+	}
+	
+	
+	
+	
+
