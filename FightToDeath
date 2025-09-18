@@ -1,5 +1,4 @@
-package polymorphism;
-
+package polymorphsism;
 
 import polymorphism.characters.Khajit;
 import polymorphism.characters.Mage;
@@ -19,63 +18,141 @@ public class FightToDeath {
 	            new Khajit("Nkaris", 50, 50, 50),
 	            new Mage("Altmer", 50, 50, 50),
 	            new Mage("Dunmer", 50, 50, 50)};
-
+		
+		GameCharacter player1 = characters[0];
+		GameCharacter player2 = characters[1];
+		GameCharacter player3 = characters[2];
+		GameCharacter player4 = characters[3];
+	
 		System.out.println("Four Skyrim characters will fight to the DEATH!");
-		System.out.println("Player 1: " + characters[0]);
-		System.out.println("Player 2: " + characters[1]);
-		System.out.println("Player 3: " + characters[2]);
-		System.out.println("Player 4: " + characters[3]);
-		
-		
-		GameCharacter first = null;
-		GameCharacter second = null;
-		GameCharacter third = null;
-		GameCharacter fourth = null;
-		
-		while (first == null) {
-			int index = rand.nextInt(characters.length); 
-		    if (characters[index].isAlive()) {
-		        first = characters[index];}}
-		
-		
-		while (second == null) {
-		    int index = rand.nextInt(characters.length);
-		    if (characters[index].isAlive() && characters[index] != first) {
-		        second = characters[index];}}
-
-		System.out.println("First fighter: " + first);
-		System.out.println("Second fighter: " + second);
+		System.out.println("Player 1: " + player1);
+		System.out.println("Player 2: " + player2);
+		System.out.println("Player 3: " + player3);
+		System.out.println("Player 4: " + player4);
+		System.out.println("--------------------------------------------");
 		
 		int round = 1;
-
-		while (first.isAlive() && second.isAlive()) {
-		    System.out.println("\n=== Round " + round++ + " ===");
-
-		    for (int hit = 1; hit <= 3; hit++) {
-
-		        int dmg1 = first.attack();
-		        second.takeDamage(dmg1);
-		        System.out.println(first + " hits " + second + " for " + dmg1 +
-		                           " (HP now: " + second.getHealth() + ")");
-		        if (!second.isAlive()) {
-		            System.out.println(second + " has fallen! " + first + " wins!");
-		            break; 
-		        }
-
-		     
-		        int dmg2 = second.attack();
-		        first.takeDamage(dmg2);
-		        System.out.println(second + " hits " + first + " for " + dmg2 +
-		                           " (HP now: " + first.getHealth() + ")");
-		        if (!first.isAlive()) {
-		            System.out.println(first + " has fallen! " + second + " wins!");
-		            break;
-		        }
-		    }
-
-		    System.out.println("End of round: " +
-		        first.getHealth() + " vs " + second.getHealth());
-		}
-	}
-
-}
+		while (player1.isAlive() && player2.isAlive()) {
+			int dmgp2 = player1.attack();
+			int dmgp1 = player2.attack();
+			player1.takeDamage(dmgp1);
+			player2.takeDamage(dmgp2);
+			System.out.println("Player 1 attacks Player 2 by " + dmgp2 + ". Player 2 damages Player 1 by " + dmgp1);
+			System.out.println("Round " + round + " stats: " + player1 + " | " + player2);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player1.isAlive() && !player2.isAlive()) {
+		    System.out.println("Winner: " + player1);} 
+		else if (player2.isAlive() && !player1.isAlive()) {
+		    System.out.println("Winner: " + player2);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+		while(player1.isAlive() && player3.isAlive()) {
+			int dmgp3 = player1.attack();
+			int dmgp1 = player3.attack();
+			player1.takeDamage(dmgp1);
+			player3.takeDamage(dmgp3);
+			System.out.println("Player 1 attacks Player 3 by: " + dmgp3 + ". Player 3 damages Player 1 by " + dmgp1);
+			System.out.println("Round " + round + " stats: " + player1 + " | " + player3);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player1.isAlive() && !player3.isAlive()) {
+		    System.out.println("Winner: " + player1);} 
+		else if (player3.isAlive() && !player1.isAlive()) {
+		    System.out.println("Winner: " + player3);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+		
+		while(player1.isAlive() && player4.isAlive()) {
+			int dmgp4 = player1.attack();
+			int dmgp1 = player4.attack();
+			player1.takeDamage(dmgp1);
+			player4.takeDamage(dmgp4);
+			System.out.println("Player 1 attacks Player 4 by " + dmgp4 + ". Player 4 damages Player 1 by " + dmgp1);
+			System.out.println("Round " + round + " stats: " + player1 + " | " + player4);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player1.isAlive() && !player4.isAlive()) {
+		    System.out.println("Winner: " + player4);} 
+		else if (player4.isAlive() && !player4.isAlive()) {
+		    System.out.println("Winner: " + player4);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+		
+		while(player2.isAlive() && player3.isAlive()) {
+			int dmgp3 = player2.attack();
+			int dmgp2 = player3.attack();
+			player2.takeDamage(dmgp2);
+			player3.takeDamage(dmgp3);
+			System.out.println("Player 2 attacks Plaer 3 by " + dmgp3 + ". Player 3 attacks Player 2 by " + dmgp2);
+			System.out.println("Round " + round + " stats: " + player2 + " | " + player3);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player2.isAlive() && !player3.isAlive()) {
+		    System.out.println("Winner: " + player1);} 
+		else if (player3.isAlive() && !player2.isAlive()) {
+		    System.out.println("Winner: " + player3);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+		
+		while(player2.isAlive() && player4.isAlive()) {
+			int dmgp4 = player2.attack();
+			int dmgp2 = player4.attack();
+			player2.takeDamage(dmgp2);
+			player4.takeDamage(dmgp4);
+			System.out.println("Player 2 attacks Player 4 by " + dmgp4 + ". Player 4 attacks Player 2 by " + dmgp2);
+			System.out.println("Round " + round + " stats: " + player2 + " | " + player4);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player2.isAlive() && !player4.isAlive()) {
+		    System.out.println("Winner: " + player1);} 
+		else if (player4.isAlive() && !player2.isAlive()) {
+		    System.out.println("Winner: " + player4);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+		while(player3.isAlive() && player4.isAlive()) {
+			int dmgp4 = player3.attack();
+			int dmgp3 = player4.attack();
+			player3.takeDamage(dmgp3);
+			player4.takeDamage(dmgp4);
+			System.out.println("Player 3 attacks Player 4 by " + dmgp4 + ". Player 4 attacks player 3 by " + dmgp3);
+			System.out.println("Round " + round + " stats: " + player3 + " | " + player4);
+			System.out.println("--------------------------------------------------------");
+			round++;}
+		
+		if (player3.isAlive() && !player4.isAlive()) {
+		    System.out.println("Winner: " + player3);} 
+		else if (player4.isAlive() && !player3.isAlive()) {
+		    System.out.println("Winner: " + player4);} 
+		else {
+		    System.out.println("Double KO! Both fighters have fallen!");}
+		System.out.println("------------------------------------------");
+		
+		
+		
+	}}
