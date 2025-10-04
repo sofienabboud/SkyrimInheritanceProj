@@ -1,0 +1,7 @@
+package polymorphism.characters;
+
+public interface Team<T> extends Iterable<T> {
+	public void addMember(T item);
+	public boolean isTeamEmpty();
+	public int memberCount();
+}
