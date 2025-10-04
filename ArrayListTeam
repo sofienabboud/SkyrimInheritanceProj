@@ -1,0 +1,33 @@
+package polymorphism.characters;
+
+import java.util.Iterator;
+import java.util.ArrayList;
+
+public class ArrayListTeam<T> implements Team<T> {
+	
+	private ArrayList<T> members;
+	
+	public ArrayListTeam() {
+	    super();
+	    members = new ArrayList<T>();}
+	
+	@Override
+	public Iterator<T> iterator() {
+	    return members.iterator();}
+
+	@Override
+	public String toString() {
+		return "This team has " + memberCount() + " members.";}
+
+	@Override
+	public void addMember(T item) {
+		members.add(item);}
+
+	@Override
+	public boolean isTeamEmpty() {
+		return members.isEmpty();}
+
+	@Override
+	public int memberCount() {
+		return members.size();}
+}
