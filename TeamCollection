@@ -1,0 +1,44 @@
+package polymorphsism;
+
+import polymorphism.characters.*;
+
+public class TeamCollection {
+	
+	public static void main(String[] args) {
+		
+		 ArrayListTeam<GameCharacter> team1 = new ArrayListTeam<>();
+	        ArrayListTeam<GameCharacter> team2 = new ArrayListTeam<>();
+
+	        team1.addMember(new Mage("Eldrin", 15, 80, 100));
+	        team1.addMember(new Mage("Seraphis", 17, 85, 95));
+	        team1.addMember(new Nord("Bjorn", 20, 120, 0));
+	        team1.addMember(new Nord("Torvald", 22, 130, 0));
+	        team1.addMember(new Khajit("S'raja", 18, 90, 25));
+	        
+	        team2.addMember(new Mage("Zareth", 14, 75, 110));
+	        team2.addMember(new Mage("Velora", 16, 82, 105));
+	        team2.addMember(new Nord("Rurik", 23, 125, 0));
+	        team2.addMember(new Nord("Erikson", 19, 115, 0));
+	        team2.addMember(new Khajit("R’kasha", 17, 92, 20));
+
+	   int team1Total = 0;
+	   	for (GameCharacter c : team1) {
+	        team1Total += c.attack();}        
+	        
+	    int team2Total = 0;
+        for (GameCharacter c : team2) {
+            team2Total += c.attack();}
+
+        System.out.println("Team 1 total attack = " + team1Total);
+        System.out.println("Team 2 total attack = " + team2Total);
+
+        if (team1Total > team2Total) {
+            System.out.println("Team 1 wins!");}
+         else if (team2Total > team1Total) {
+            System.out.println("Team 2 wins!");}
+         else {
+            System.out.println("It’s a tie!");}
+        
+    
+        
+}}
